@@ -26,9 +26,9 @@ function App() {
               <Navbar/>
               <SectionFlag />
               </Route>
-              <Route  path='*'>
+              {/* <Route  path='*'>
                 <Error />
-              </Route>  
+              </Route>   */}
             </Switch>
     </Router>
   )
