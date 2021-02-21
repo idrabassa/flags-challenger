@@ -9,9 +9,10 @@ function App() {
   
   return (
     <Router>
+       <Navbar/> 
           <Switch>
               <Route exact path='/'>
-              <Navbar/> 
+             
               <Section/>
               </Route>
               <Route exact path='/section'>
