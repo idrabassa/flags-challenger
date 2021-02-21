@@ -15,7 +15,7 @@ function App() {
              
               <Section/>
               </Route>
-              <Route exact path='/section'>
+              <Route exact path='/flags-challenger'>
               <Navbar/>
               <Section/>
               </Route>
