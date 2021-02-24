@@ -23,7 +23,7 @@ function SectionFlag() {
        console.log(getBorders())
       return (
         <div className="container">
-            <Link className={`btn back ${isDarkMode?'dark-mode':''}`} to={'flag-challenger/section'}>
+            <Link className={`btn back ${isDarkMode?'dark-mode':''}`} to={'/flag-challenger/section'}>
                 <BsArrowLeft/>
                 <p>Back</p>
             </Link>
