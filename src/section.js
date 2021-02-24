@@ -15,6 +15,17 @@ function Section() {
     const[filterFlags,setFilterFlags]=useState([flags])
     const[isView,setisView]=useState(false)
     const[filterValue,setFilterValue]= useState('Filter by Region')
+    const handleSearch=(e)=>{
+       let value = e.target.value
+       if(value===''||value===undefined){
+           setFilterValue('Filter by Region')
+           setFilterFlags(flags)
+       }else{
+        const newfilterFlags=filterFlags.filter((flag)=>flag.name.toLowerCase().includes(value))
+        setFilterFlags(newfilterFlags)
+        //console.log(newfilterFlags)
+    }
+    }
     const handleFilter=(e)=>{
     
         const value=e.target.textContent
@@ -27,7 +38,7 @@ function Section() {
         e.preventDefault()
     }
     const filter=(region)=>{
-        if (region===filterValue||region==='Filter by Region') {
+        if (region==='Filter by Region') {
             console.log('entre aqui')
             setFilterFlags(flags);
         }else{
@@ -49,7 +60,7 @@ function Section() {
                     <button>
                         <AiOutlineSearch/>
                     </button>
-                    <input type="text" placeholder="Search for a country..."></input>
+                    <input type="text" placeholder="Search for a country..." onChange={(e)=>handleSearch(e)}></input>
                 </div>
                 <div className={`filter ${isDarkMode?'dark-mode':''}`} onClick={handleFilter}>
                     <ul className={`select ${isView?'view':''}`} >

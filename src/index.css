@@ -398,6 +398,37 @@ button:focus{
   display: inline;
 }
 
+@media screen and (max-width: 375px) {
+  .navbar h1{
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .section {
+    width: 95vw;
+  }
+
+  .flags-container{
+    grid-template-columns: repeat(1, 1fr);
+    
+  }
+  .searcher-menu {
+    display: flex;
+    flex-direction: column;
+
+     /* margin: 2rem 0; */
+     
+   }
+  
+  .search{
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .flags-container{
+    width: 80%;
+  }
+
+}
+
 /* select{
   height: 50px;
   background: var(--clr-white-text-dark-mode-elements-ligth-mode);

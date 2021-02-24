@@ -14,7 +14,7 @@ function Flag({flags}) {
             //const {name,population,flag,capital,region}=item
             //console.log(item.name)
             return(
-                 <Link to={`/section/sectionflag/${item.name}`} key={index}>
+                 <Link to={`/flags-challenger/section/sectionflag/${item.name}`} key={index}>
                 <div className={`flag ${isDarkMode?'dark-mode':''}`}>
                     <img src={item.flag} alt={item.name}></img>
                     <div className="flag-info">

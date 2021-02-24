@@ -2,9 +2,9 @@ import React, { useState ,useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import {BsArrowLeft} from 'react-icons/bs'
 import {useGlobalContext} from './context'
-import Loading from './loading'
+//import Loading from './loading'
 import Error from './error'
-import { link } from 'fs';
+//import { link } from 'fs';
 
 
 function SectionFlag() {
@@ -23,7 +23,7 @@ function SectionFlag() {
        console.log(getBorders())
       return (
         <div className="container">
-            <Link className={`btn back ${isDarkMode?'dark-mode':''}`} to={'/flag-challenger/section'}>
+            <Link className={`btn back ${isDarkMode?'dark-mode':''}`} to={'/flags-challenger/section'}>
                 <BsArrowLeft/>
                 <p>Back</p>
             </Link>
@@ -77,7 +77,7 @@ function SectionFlag() {
                             return(
                                 getBorders().map((border,index)=>{
                                     if(item===border.alphaCode){
-                                        return <Link to={`flag-challeger/section/sectionflag/${border.nameC}`}key={index} className={`btn countries ${isDarkMode?'dark-mode':''}`}><p>{border.nameC.split(" ", 1)}</p></Link>
+                                        return <Link to={`/flags-challenger/section/sectionflag/${border.nameC}`}key={index} className={`btn countries ${isDarkMode?'dark-mode':''}`}><p>{border.nameC.split(" ", 1)}</p></Link>
                                     }
                                     
                               })

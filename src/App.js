@@ -19,17 +19,21 @@ function App() {
               <Navbar/>
               <Section/>
               </Route>
+              <Route exact path='/flags-challenger/section'>
+              <Navbar/>
+              <Section/>
+              </Route>
               {/* <Route exact path='/section/sectionflag' >
               <Navbar/>
               <SectionFlag />
               </Route> */}
-              <Route path='/section/sectionflag/:name' children={<SectionFlag/>}>
+              <Route path='/flags-challenger/section/sectionflag/:name' children={<SectionFlag/>}>
               <Navbar/>
               <SectionFlag />
               </Route>
-              {/* <Route  path='*'>
+              <Route  path='*'>
                 <Error />
-              </Route>   */}
+              </Route>  
             </Switch>
     </Router>
   )

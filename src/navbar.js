@@ -33,6 +33,7 @@ const NavbarStyled = styled.nav`
       &.dark-mode div button{
         color: var(--clr-white-text-dark-mode-elements-ligth-mode);
       }
+      @media screen and (min-width: 355px) {}
 
 `
 
