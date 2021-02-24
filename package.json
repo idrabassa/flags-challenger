@@ -1,7 +1,7 @@
 {
   "name": "base-typescript-appt",
   "version": "0.1.0",
-  "homepage": "https://idrabassa.github.io/flags-challenger/",
+  "homepage": "https://idrabassa.github.io/flags-challenger",
   "private": true,
   "dependencies": {
     "@apollo/client": "^3.3.7",
