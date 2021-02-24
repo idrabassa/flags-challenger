@@ -23,14 +23,12 @@ function Section() {
        }else{
         const newfilterFlags=filterFlags.filter((flag)=>flag.name.toLowerCase().includes(value.toLowerCase()))
         setFilterFlags(newfilterFlags)
-        //console.log(newfilterFlags)
     }
     }
     const handleFilter=(e)=>{
     
         const value=e.target.textContent
         if (value!=='') {
-            console.log(value)
             setFilterValue(value);
             filter(value);
         }
@@ -39,7 +37,6 @@ function Section() {
     }
     const filter=(region)=>{
         if (region==='Filter by Region') {
-            console.log('entre aqui')
             setFilterFlags(flags);
         }else{
             const newfilterFlags=flags.filter((flag)=>flag.region === region)
@@ -68,7 +65,6 @@ function Section() {
                             <button className={`option1 ${isDarkMode?'dark-mode':''}`}><p>{filterValue}</p><MdKeyboardArrowDown /></button>
                         </li>
                         <ul className={isDarkMode?'dark-mode':''}>
-                        {/* <li>None</li> */}
                         <li>Africa</li>
                         <li>Americas</li>
                         <li>Asia</li>
@@ -76,16 +72,6 @@ function Section() {
                         <li>Oceania</li>
                         </ul>
                     </ul>
-                      
-                    {/* <select name="category" id="category">
-                        <option value="">Filter by Region</option>
-                        <option value="">Africa</option>
-                        <option value="">America</option>
-                        <option value="">Asia</option>
-                        <option value="">Europe</option>
-                        <option value="">Oceania</option>
-                    </select> */}
-                    
                 </div>
             </div>
             <div className={`flags-container container ${isDarkMode?'dark-mode':''}`}>                   

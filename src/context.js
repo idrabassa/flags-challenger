@@ -1,73 +1,64 @@
-import React, { useState, useContext,useEffect } from 'react';
+import React, { useState, useContext, useEffect } from "react";
 
 const AppContext = React.createContext();
-const filter=''
-const url=`https://restcountries.eu/rest/v2/all${filter}`
-//const url=`https://restcountries.eu/rest/v2/name/${filter}`
+const url = `https://restcountries.eu/rest/v2/all`;
 const AppProvider = ({ children }) => {
-  const [loading,setLoading]=useState(true)
+  const [loading, setLoading] = useState(true);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [data,setData]=useState([])
-  const [flags,setFlags]=useState([])
-  //const [border,setBorder]=useState({})
-  const [borders,setBorders]=useState([])
-  const setNewData = (newData)=>{
-      setData(newData)
+  const [data, setData] = useState([]);
+  const [flags, setFlags] = useState([]);
+  const [borders, setBorders] = useState([]);
+  const setNewData = (newData) => {
+    setData(newData);
+  };
+  const getFlags = async () => {
+    const response = await fetch(url);
+    const newflags = await response.json();
+    setFlags(newflags);
+    setLoading(false);
+  };
+  function changeMedia(mq) {
+    setIsDarkMode(mq.matches);
+    if (mq.matches) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
   }
-  const getFlags=async()=>{
-    const response = await fetch(url)
-    const newflags = await response.json()
-    setFlags(newflags)
-    //setFilterFlags(newflags)
-    setLoading(false)
-}
-function changeMedia(mq){
-  setDarkMode()
-}
-    useEffect(()=>{
-        getFlags()
-        getBorders()
-        const mq=window.matchMedia('(prefers-color-scheme:dark)')
-        mq.addListener(changeMedia);
-        //console.log(mq)
-        // const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-        // const userPrefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
-
-        //   if(userPrefersDark){
-        //       console.log("User prefers a dark interface");
-        //   }
-        //   if(userPrefersLight){
-        //     console.log("User prefers a light interface");
-        //   }
-         
-    },[isDarkMode])
+  useEffect(() => {
+    getFlags();
+    getBorders();
+    const mq = window.matchMedia("(prefers-color-scheme:dark)");
+    mq.addListener(changeMedia);
+    if (mq.matches) {
+      setDarkMode();
+    }
+  }, []);
 
   const setDarkMode = () => {
     setIsDarkMode(!isDarkMode);
-    
-    if(!isDarkMode){
-    document.body.classList.add('dark-mode')
-    }else{
-      document.body.classList.remove('dark-mode')
+
+    if (!isDarkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
     }
-    const theme =isDarkMode.toString
-    window.localStorage.setItem('bg','exe')
   };
   const setOffDarkMode = () => {
     setDarkMode(false);
   };
-  const getBorders=()=>{
-    let newBorders=[]
-    flags.map((flag,index)=>{
-      let newborder={ id:index,alphaCode:flag.alpha3Code,nameC:flag.name}
-      newBorders.push(newborder)
-    })
-    return newBorders
-  }
-
-  // const getBorders=()=>
-
+  const getBorders = () => {
+    let newBorders = [];
+    flags.map((flag, index) => {
+      let newborder = {
+        id: index,
+        alphaCode: flag.alpha3Code,
+        nameC: flag.name,
+      };
+      newBorders.push(newborder);
+    });
+    return newBorders;
+  };
   return (
     <AppContext.Provider
       value={{
@@ -79,7 +70,7 @@ function changeMedia(mq){
         getBorders,
         setDarkMode,
         setOffDarkMode,
-        setNewData
+        setNewData,
       }}
     >
       {children}
@@ -92,4 +83,3 @@ export const useGlobalContext = () => {
 };
 
 export { AppContext, AppProvider };
-

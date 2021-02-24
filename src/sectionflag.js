@@ -2,16 +2,12 @@ import React, { useState ,useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom';
 import {BsArrowLeft} from 'react-icons/bs'
 import {useGlobalContext} from './context'
-//import Loading from './loading'
 import Error from './error'
-//import { link } from 'fs';
-
 
 function SectionFlag() {
     const {name}=useParams()
     const[currentflag,setFlag]=useState({})
-    const{isDarkMode,flags,borders,getBorders}=useGlobalContext()
-    const[newborder,SetBorder]=useState({})
+    const{isDarkMode,flags,getBorders}=useGlobalContext()
     useEffect(() => {
         const filterflag = flags.find((flag) => flag.name ===name);
         setFlag(filterflag);
@@ -20,7 +16,6 @@ function SectionFlag() {
       if(currentflag===undefined||currentflag==={}){
         return <Error/>
       }
-       console.log(getBorders())
       return (
         <div className="container">
             <Link className={`btn back ${isDarkMode?'dark-mode':''}`} to={'/flags-challenger/section'}>
@@ -44,7 +39,6 @@ function SectionFlag() {
                     <p>Top Level Domain: 
                         {currentflag.topLevelDomain===undefined?'undefined':currentflag.topLevelDomain.map((item,index)=>{
                             if(currentflag.topLevelDomain.length >1 && index <currentflag.topLevelDomain.length-1){
-                                console.log(index)
                                 return `${item},`
                             }
                                return item
@@ -72,7 +66,6 @@ function SectionFlag() {
                    <div className="info-downner">
                        <p>Border Countries:</p>
                        <div className="border-countries">
-                            {/* {console.log(getBorders())}  */}
                         {currentflag.borders===undefined?'undefined':currentflag.borders.map((item)=>{
                             return(
                                 getBorders().map((border,index)=>{
