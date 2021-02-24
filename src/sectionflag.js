@@ -77,7 +77,7 @@ function SectionFlag() {
                             return(
                                 getBorders().map((border,index)=>{
                                     if(item===border.alphaCode){
-                                        return <Link to={`/section/sectionflag/${border.nameC}`}key={index} className={`btn countries ${isDarkMode?'dark-mode':''}`}><p>{border.nameC.split(" ", 1)}</p></Link>
+                                        return <Link to={`flag-challeger/section/sectionflag/${border.nameC}`}key={index} className={`btn countries ${isDarkMode?'dark-mode':''}`}><p>{border.nameC.split(" ", 1)}</p></Link>
                                     }
                                     
                               })
