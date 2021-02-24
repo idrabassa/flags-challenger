@@ -426,6 +426,34 @@ button:focus{
   .flags-container{
     width: 80%;
   }
+  .specify-flag-info{
+    display: flex;
+    flex-direction: column;
+  }
+  .preview{
+    height: 250px;
+    width: 100%;
+  }
+  .sections{
+    display: flex;
+    flex-direction: column;
+  }
+  .info-upper{
+   margin-left: 0px;
+   margin-top: 50px;
+  }
+  .info-section2{
+    margin-top: 30px;
+  }
+  .info-downner{
+    margin-left: 0px;
+  }
+  .border-countries{
+  
+    grid-template-columns: repeat(3, 100px);
+
+    
+  }
 
 }
 

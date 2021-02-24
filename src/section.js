@@ -21,7 +21,7 @@ function Section() {
            setFilterValue('Filter by Region')
            setFilterFlags(flags)
        }else{
-        const newfilterFlags=filterFlags.filter((flag)=>flag.name.toLowerCase().includes(value))
+        const newfilterFlags=filterFlags.filter((flag)=>flag.name.toLowerCase().includes(value.toLowerCase()))
         setFilterFlags(newfilterFlags)
         //console.log(newfilterFlags)
     }
