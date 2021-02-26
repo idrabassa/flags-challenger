@@ -1,12 +1,24 @@
 import React,{useState,useEffect} from 'react'
 import styled from 'styled-components'
-import {AiOutlineSearch} from 'react-icons/ai'
-import {MdKeyboardArrowDown} from 'react-icons/md'
 import Flag from './flag'
 import Loading from './loading'
 import {useGlobalContext} from './context'
+import Filter from './filter'
+import Search from './search'
 const SectionStyled = styled.div`
 margin-top: 40px;
+
+.searcher-menu {
+    display: flex;
+    justify-content: space-between;  
+   }
+.flags-container{
+    display: grid;
+    grid-gap: 4.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    margin-top: 1rem;
+  }
 
 `
 
@@ -53,26 +65,8 @@ function Section() {
     return (
         <SectionStyled className={`flags-section container ${isDarkMode?'dark-mode':''}`}>
             <div className={`searcher-menu ${isDarkMode?'dark-mode':''}`}>
-                <div className={`search ${isDarkMode?'dark-mode':''}`} >
-                    <button>
-                        <AiOutlineSearch/>
-                    </button>
-                    <input type="text" placeholder="Search for a country..." onChange={(e)=>handleSearch(e)}></input>
-                </div>
-                <div className={`filter ${isDarkMode?'dark-mode':''}`} onClick={handleFilter}>
-                    <ul className={`select ${isView?'view':''}`} >
-                        <li className="default">
-                            <button className={`option1 ${isDarkMode?'dark-mode':''}`}><p>{filterValue}</p><MdKeyboardArrowDown /></button>
-                        </li>
-                        <ul className={isDarkMode?'dark-mode':''}>
-                        <li>Africa</li>
-                        <li>Americas</li>
-                        <li>Asia</li>
-                        <li>Europe</li>
-                        <li>Oceania</li>
-                        </ul>
-                    </ul>
-                </div>
+                <Search handleSearch={handleSearch}/>
+                <Filter filterValue={filterValue} handleFilter={handleFilter} isView={isView}/>
             </div>
             <div className={`flags-container container ${isDarkMode?'dark-mode':''}`}>                   
                     <Flag flags={filterFlags} />               
