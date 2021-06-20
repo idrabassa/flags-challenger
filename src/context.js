@@ -59,7 +59,7 @@ const AppProvider = ({ children }) => {
       newBorders.push(newborder)
       return newborder
     })
-    setBorders(newBorders)
+    //setBorders(newBorders)
     return newBorders
   }
   return (

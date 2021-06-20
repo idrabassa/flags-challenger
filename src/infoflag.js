@@ -131,7 +131,7 @@ function InfoFlag({ currentflag, name }) {
                       </Link>
                     )
                   }
-                  return index
+                  // return index
                 })
               })}
         </div>
